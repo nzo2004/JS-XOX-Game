@@ -18,25 +18,33 @@ const combinations=[
 ]
 
 //duvar kısmını seçeriz
+
 const board=document.getElementById('board');
 
 //X ve O koyacağımız yerleri seçeriz
+
 const cells=document.querySelectorAll('.cell');
 
 //sonuç id seçeriz
+
 const result=document.getElementById('result');
 
 //sonuç yazısı id seçeriz
+
 const resultText=document.querySelector('.result-text');
 
 // reset id seçeriz
+
 const restartBtn=document.getElementById('reset');
 
 let turn; // False X , True O
 
 //Tam tersi yapar 
+
 const swapTurn = () =>{turn=!turn};
+
 //seçtiğimiz şeyi eklemek için kullanılır
+
 const placeMark=(cell,currentClass)=>{cell.classList.add(currentClass)}
 
 const placeHover = () => {
@@ -50,6 +58,7 @@ const placeHover = () => {
 }
 
 //Sonuc belirleriz
+
 const endGame=(draw)=>{
     //Eğer beraberlik için
     if(draw) 
@@ -73,6 +82,7 @@ const isDraw=()=>{
         return cell.classList.contains(xClass) || cell.classList.contains(oClass)
     })
 }
+
 const checkWin=(currentClass)=>{
     //combinations.some dizimiz ile eşleşen var mı diye sorarız
     return combinations.some(combination=>{
@@ -100,7 +110,9 @@ const handleClick=(e)=> {
         placeHover()
     }
 }
+
 //Yeniden başlatırken
+
 const resetGame=()=>{
     cells.forEach(cell=>{
         //Bütün X ve O ları sil deriz
@@ -115,6 +127,7 @@ const resetGame=()=>{
 
 
 //Başlatmak için
+
 const startGame=() => {
     turn=false
     resetGame()
@@ -123,4 +136,5 @@ const startGame=() => {
 }
 
 startGame()
+
 restartBtn.addEventListener('click',startGame)
